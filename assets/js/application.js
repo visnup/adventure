@@ -1,7 +1,7 @@
 //= require watchmaker
 //= require vendor/moment
 
-$.get('/next', function(data) {
+$.get('/event', function(data) {
   var $details = $('.details');
 
   data.start = moment(data.DTSTART[0].value);

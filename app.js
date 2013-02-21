@@ -6,7 +6,6 @@ var icalendar = require('icalendar')
 // Configuration
 app.configure(function() {
   app.set('port', process.env.PORT || 8000);
-
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
 
@@ -31,7 +30,7 @@ app.get('/now', function(req, res) {
   res.send(String(Date.now()));
 });
 
-app.get('/next', function(req, res) {
+app.get('/event', function(req, res) {
   var url = 'http://www.google.com/calendar/ical/squareup.com_j5tn0fal9t907lqphjrap2v91c%40group.calendar.google.com/private-7013e50ac45885321e8ce035792e67a4/basic.ics';
   request(url, function(err, r, body) {
     if (err) return res.send({ error: err, response: r, body: body });
