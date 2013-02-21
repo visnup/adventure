@@ -1,3 +1,4 @@
-/builtAssets/*
 /assets/*
+/builtAssets/*
+/public/*
 *.styl
