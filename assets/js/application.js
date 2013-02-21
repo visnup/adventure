@@ -5,7 +5,7 @@ $.get('/next', function(data) {
   var $details = $('.details');
 
   data.start = moment(data.DTSTART[0].value);
-  data.location = data.LOCATION[0].value;
+  data.location = data.LOCATION[0].value.replace(/[\u2295-\u32fe]/, '').trim();
   data.description = data.DESCRIPTION[0].value;
 
   $('.location', $details).text(data.location);
