@@ -302,14 +302,17 @@ var nko = {};
     //// networking
     var dudes = nko.dudes = {};
     var ws = nko.ws = io.connect(null);
+
     ws.on('connect', function() {
       me.id = ws.socket.sessionid;
       nko.dudes[me.id] = me;
+
       (function heartbeat() {
         nko.send({ obj: me }, true);
         setTimeout(heartbeat, 5000);
       })();
     });
+
     ws.on('message', function(data) {
       var dude = dudes[data.id];
 
