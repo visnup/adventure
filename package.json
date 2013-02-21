@@ -1,12 +1,12 @@
 {
   "name": "adventure",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.0-1",
   "description": "Adventure Time schedule",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,8 @@
   "license": "BSD",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "nodemon": "~0.7.2"
+    "nodemon": "~0.7.2",
+    "jitsu": "~0.12.1"
   },
   "dependencies": {
     "jade": "~0.28.1",
@@ -24,5 +25,9 @@
     "stylus": "~0.32.0",
     "express": "~3.1.0",
     "ical": "0.0.6"
+  },
+  "subdomain": "adventure",
+  "engines": {
+    "node": "0.8.x"
   }
 }
