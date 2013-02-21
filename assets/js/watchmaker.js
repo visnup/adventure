@@ -196,7 +196,7 @@ var nko = {};
     this.frame = ((this.frame + 1) % frames);
     this.div.css('background-position', (-(this.frameOffset[this.state]+this.frame) * this.size.x) + 'px 0px');
 
-    // if (this.bubble && this.bubble.is(':visible')) { // <-- visibile is an expensive operations
+    // if (this.bubble && this.bubble.is(':visible')) { // <-- visible is an expensive operation
     if (this.bubble && this.bubble.css('display') !== 'none') {
       this.bubbleFrame = (this.bubbleFrame + 1) % 3;
       self.bubble
@@ -284,7 +284,7 @@ var nko = {};
     var types = [ 'LSP', 'iceking' ];
     var me = nko.me = new nko.Dude({
       name: types[Math.floor(types.length * Math.random())],
-      pos: new nko.Vector(-100, -100),
+      pos: new nko.Vector(-1000, -1000),
       ready: function() {
         this.speak('type to chat. click to move around.');
         speakTimeout = setTimeout(function() { me.speak(''); }, 5000);
@@ -294,7 +294,7 @@ var nko = {};
     // random dude placement
     $(window).load(function() {
       var el = $(location.hash)
-      if (el.length === 0) el = $('body');
+      if (el.length === 0) el = $('.ground');
       nko.warpTo(el);
     });
 
