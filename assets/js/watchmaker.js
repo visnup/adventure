@@ -481,8 +481,14 @@ var nko = {};
       .bind('touchmove', function(e) { moved = true; })
       .bind('touchend', function(e) { // move on touch
         if (moved) return moved = false;
-        var t = e.originalEvent.changedTouches.item(0);
-        me.goTo(new nko.Vector(t.pageX, t.pageY));
+        var t = e.originalEvent.changedTouches.item(0)
+          , pos = new nko.Vector(t.pageX, t.pageY);
+        me.goTo(pos);
+        nko.send({
+          obj: me,
+          method: 'goTo',
+          arguments: [ pos ]
+        });
       })
 
     // chat
