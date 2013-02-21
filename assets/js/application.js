@@ -6,8 +6,6 @@ $.get('/next', function(data) {
   data.location = data.LOCATION[0].value;
   data.description = data.DESCRIPTION[0].value;
 
-  console.log(data);
-
   $('.location').text(data.location);
 
   // server offset
