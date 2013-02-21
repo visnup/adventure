@@ -22,18 +22,15 @@ app.configure('development', function() {
 });
 
 // Routes
-app.get('/', function(req, res) {
-  res.render('index');
-});
+app.get('/', function(req, res) { res.render('index') });
 
-app.get('/now', function(req, res) {
-  res.send(String(Date.now()));
-});
+app.get('/now', function(req, res) { res.send(String(Date.now())) });
 
 app.get('/event', function(req, res) {
   var url = 'http://www.google.com/calendar/ical/squareup.com_j5tn0fal9t907lqphjrap2v91c%40group.calendar.google.com/private-7013e50ac45885321e8ce035792e67a4/basic.ics';
   request(url, function(err, r, body) {
     if (err) return res.send({ error: err, response: r, body: body });
+
     var calendar = icalendar.parse_calendar(body);
     res.send(calendar.components.VEVENT[0].properties);
   });
