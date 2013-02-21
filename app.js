@@ -1,4 +1,5 @@
-var ical = require('ical')
+var icalendar = require('icalendar')
+  , request = require('request')
   , express = require('express')
   , app = express();
 
@@ -31,17 +32,11 @@ app.get('/now', function(req, res) {
 });
 
 app.get('/next', function(req, res) {
-  return res.send({
-    when: Date.now() + 1000 * 60 * 60,
-    where: 'Washington Square',
-    description: 'Oh'
-  });
-
-  var url = 'http://www.google.com/calendar/ical/squareup.com_dtroaagr8rhka9lm47riq22hk4%40group.calendar.google.com/private-2102aa6de559abe33b33226abaa2d4c2/basic.ics';
-  ical.fromURL(url, {}, function(err, data) {
+  var url = 'http://www.google.com/calendar/ical/squareup.com_j5tn0fal9t907lqphjrap2v91c%40group.calendar.google.com/private-7013e50ac45885321e8ce035792e67a4/basic.ics';
+  request(url, function(err, r, body) {
     if (err) return res.send({ error: err, response: r, body: body });
-    console.log(data);
-    res.send(data);
+    var calendar = icalendar.parse_calendar(body);
+    res.send(calendar.components.VEVENT[0].properties);
   });
 });
 

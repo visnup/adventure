@@ -1,7 +1,14 @@
 //= require watchmaker
+//= require vendor/moment
 
 $.get('/next', function(data) {
-  $('.where').text(data.where);
+  data.start = moment(data.DTSTART[0].value);
+  data.location = data.LOCATION[0].value;
+  data.description = data.DESCRIPTION[0].value;
+
+  console.log(data);
+
+  $('.location').text(data.location);
 
   // server offset
   var skew = 0;
@@ -22,22 +29,18 @@ $.get('/next', function(data) {
   function pad(s) { return s >= 10 ? s : '0' + s; }
 
   (function tick() {
-    var diff = new Date(parseInt(data.when)) - new Date - skew;
+    var diff = data.start - new Date - skew;
 
     if (isNaN(diff)) return;
 
     if (diff > 0) {
       var p = parts(diff)
-        , $countdown = $('.when').empty();
+        , $countdown = $('.start').empty();
       if (p[0])
         $countdown.append(p[0] + 'd ');
       $countdown.append(_.map(p.slice(1, 4), pad).join(':'));
 
       setTimeout(tick, 800);
-    } else {
-      $next.addClass('old');
-      setCurrent($next);
-      tick();
     }
   })();
 });

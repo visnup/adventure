@@ -1,6 +1,6 @@
 {
   "name": "adventure",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "dependencies": {
     "connect-assets": {
       "version": "2.3.3",
@@ -92,34 +92,8 @@
         }
       }
     },
-    "ical": {
-      "version": "0.0.6",
-      "dependencies": {
-        "request": {
-          "version": "2.14.0",
-          "dependencies": {
-            "form-data": {
-              "version": "0.0.7",
-              "dependencies": {
-                "combined-stream": {
-                  "version": "0.0.4",
-                  "dependencies": {
-                    "delayed-stream": {
-                      "version": "0.0.5"
-                    }
-                  }
-                },
-                "async": {
-                  "version": "0.1.22"
-                }
-              }
-            },
-            "mime": {
-              "version": "1.2.9"
-            }
-          }
-        }
-      }
+    "icalendar": {
+      "version": "0.6.3"
     },
     "jade": {
       "version": "0.28.1",
@@ -137,6 +111,30 @@
     },
     "nib": {
       "version": "0.9.1"
+    },
+    "request": {
+      "version": "2.14.0",
+      "dependencies": {
+        "form-data": {
+          "version": "0.0.7",
+          "dependencies": {
+            "combined-stream": {
+              "version": "0.0.4",
+              "dependencies": {
+                "delayed-stream": {
+                  "version": "0.0.5"
+                }
+              }
+            },
+            "async": {
+              "version": "0.1.22"
+            }
+          }
+        },
+        "mime": {
+          "version": "1.2.9"
+        }
+      }
     },
     "socket.io": {
       "version": "0.9.13",
