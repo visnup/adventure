@@ -1,3 +1,8 @@
+//= require vendor/jquery-1.9.1.min
+//= require vendor/jquery-migrate-1.1.1.min
+//= require vendor/underscore-min
+//= require vendor/jquery.keylisten
+
 var nko = {};
 (function(nko) {
   //// Vector
