@@ -283,7 +283,8 @@ var nko = {};
 
   $(function() {
     //// a dude
-    var types = [ 'LSP', 'iceking', 'finnthehuman', 'jakethedog', 'beemo', 'bubblegum' ];
+    var types = [ 'LSP', 'iceking', 'finnthehuman', 'jakethedog', 'beemo',
+      'bubblegum' ];
     var me = nko.me = new nko.Dude({
       name: types[Math.floor(types.length * Math.random())],
       pos: new nko.Vector(-1000, -1000),
@@ -295,9 +296,16 @@ var nko = {};
 
     // random dude placement
     $(window).load(function() {
-      var el = $(location.hash)
-      if (el.length === 0) el = $('.ground');
-      nko.warpTo(el);
+      var el = $('.ground')
+        , pos = el.position();
+      pos = new nko.Vector(pos.left + 20 + Math.random() * (el.width()-40),
+                           pos.top + 20 + Math.random() * 100);
+      me.warp(pos);
+      nko.send({
+        obj: me,
+        method: 'warp',
+        arguments: [ pos ]
+      });
     });
 
 
@@ -344,7 +352,7 @@ var nko = {};
     //// helper methods
     function randomPositionOn(selector) {
       var page = $(selector)
-        , pos = page.position()
+        , pos = page.position();
 
       return new nko.Vector(pos.left + 20 + Math.random() * (page.width()-40),
                             pos.top + 20 + Math.random() * (page.height()-40));
@@ -352,9 +360,7 @@ var nko = {};
 
     nko.warpTo = function warpTo(selector) {
       var page = $(selector)
-        , pos = page.position();
-
-      pos = randomPositionOn(page);
+        , pos = randomPositionOn(page);
 
       me.warp(pos);
       nko.send({
