@@ -38,7 +38,7 @@ $.get('/next', function(data) {
         , $countdown = $('.start', $details).empty();
       if (p[0])
         $countdown.append(p[0] + 'd ');
-      $countdown.append(_.map(p.slice(1, 4), pad).join(':'));
+      $countdown.append(_.map(p.slice(1, 4), pad).join(' '));
 
       setTimeout(tick, 800);
     }

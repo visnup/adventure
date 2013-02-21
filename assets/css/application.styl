@@ -8,7 +8,7 @@ small = 12pt
 medium = 16pt
 large = 24pt
 x-large = 32pt
-xx-large = 48pt
+xx-large = 60pt
 
 @font-face
   font-family '04b_03'
@@ -54,12 +54,15 @@ h1, h2, h3, h4, h5, h6
     opacity 1
     transition opacity 200ms
   .start
+    font-family helvetica neue
+    font-weight 100
     font-size xx-large
     margin 1em 0 0
     &:before
       content ''
       display block
-      font-size large
+      font-family 'SQ Market'
+      font-size x-large
   .location
     min-height 65px
     font-size x-large
