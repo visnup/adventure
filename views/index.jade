@@ -3,6 +3,14 @@ html
   head
     link( href="/normalize.css", type="text/css", rel="stylesheet" )
     :stylus
+      @font-face
+        font-family "04b_03"
+        src url('/fonts/04b_03__-webfont.eot')
+        src url('/fonts/04b_03__-webfont.eot?iefix') format('eot'), url('/fonts/04b_03__-webfont.woff') format('woff'), url('/fonts/04b_03__-webfont.ttf') format('truetype'), url('/fonts/04b_03__-webfont.svg#webfontiFL0wwqh') format('svg')
+        font-weight normal
+        font-style normal
+        font-size medium
+      
       body
         font-family sans-serif
       #page
@@ -40,6 +48,7 @@ html
             position absolute
             left -100px
             width 80px
+
     script( type="text/javascript", src="modernizr.custom.66516.js" )
   body
     #page
@@ -50,5 +59,3 @@ html
     script( type="text/javascript", src="jquery.keylisten.js" )
     script( type="text/javascript", src="socket.io/socket.io.js" )
     script( type="text/javascript", src="watchmaker.js" )
-    script( type="text/javascript" )
-      1
