@@ -4,39 +4,70 @@
 blue = #56a8e1
 green = #238a58
 
+medium = 16pt
+large = 24pt
+x-large = 32pt
+xx-large = 48pt
+
 @font-face
-  font-family "04b_03"
+  font-family '04b_03'
   src url('/fonts/04b_03__-webfont.eot')
   src url('/fonts/04b_03__-webfont.eot?iefix') format('eot'), url('/fonts/04b_03__-webfont.woff') format('woff'), url('/fonts/04b_03__-webfont.ttf') format('truetype'), url('/fonts/04b_03__-webfont.svg#webfontiFL0wwqh') format('svg')
   font-weight normal
   font-style normal
   font-size medium
 
+@font-face
+  font-family 'SQ Market'
+  font-weight 300
+  src url('/fonts/SQMarket-Light.otf') format("opentype")
+
 @keyframes float
   from
-    background-position 0 -400px
+    background-position 0 -480px
   to
-    background-position 2354px -400px
+    background-position 2354px -480px
 
 html, body
   height 100%
 
 body
-  font-family sans-serif
-  background blue url('/images/clouds.png') 0 -400px repeat
+  font-family 'SQ Market', sans-serif
+  font-size medium
+  background blue url('/images/clouds.png') 0 -480px repeat
   animation-name float
   animation-duration 420s
   animation-iteration-count infinite
   animation-timing-function linear
 
-#page
+h1, h2, h3, h4, h5, h6
+  font-family 'SQ Market'
+  font-weight 300
+
+.details
+  text-align center
+  color white
+  text-shadow 0 2px 2px hsla(0, 0%, 0%, 0.2)
+  h1.when
+    font-size xx-large
+    margin 1em 0 0
+    &:before
+      content ''
+      display block
+      font-size large
+  h2.where
+    font-size x-large
+    margin 0
+    text-transform lowercase
+
+.ground
+  position relative
+  margin 200px 0 0
+  min-height 100%
   border-top solid 4px hsla(0, 0%, 0%, 0.4)
   background-color green
   background-image linear-gradient(top, hsla(0, 0%, 0%, 0.2), hsla(0, 0%, 0%, 0) 30px), url('/images/grass.png')
   background-repeat no-repeat, repeat
-  position relative
-  margin 500px 0 0
-  min-height 100%
 
 .thing
   position absolute

@@ -103,7 +103,7 @@ var nko = {};
         transform: Modernizr.csstransforms ? 'translate(' + offset.toString() + ')' : null,
         background: 'url(' + this.img.attr('src') + ')'
       })
-      .appendTo($('#page'));
+      .appendTo($('.ground'));
     this.resetOrigin();
     if (this.ready) this.ready();
 
