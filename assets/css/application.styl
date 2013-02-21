@@ -24,9 +24,9 @@ xx-large = 48pt
 
 @keyframes float
   from
-    background-position 0 -480px
+    background-position 0 -460px
   to
-    background-position 2354px -480px
+    background-position 2354px -460px
 
 html, body
   height 100%
@@ -34,7 +34,7 @@ html, body
 body
   font-family 'SQ Market', sans-serif
   font-size medium
-  background blue url('/images/clouds.png') 0 -480px repeat
+  background blue url('/images/clouds.png') 0 -460px repeat
   animation-name float
   animation-duration 420s
   animation-iteration-count infinite
@@ -45,9 +45,13 @@ h1, h2, h3, h4, h5, h6
   font-weight 300
 
 .details
+  opacity 0
   text-align center
   color white
   text-shadow 0 2px 2px hsla(0, 0%, 0%, 0.2)
+  &.ready
+    opacity 1
+    transition opacity 200ms
   .start
     font-size xx-large
     margin 1em 0 0
@@ -56,6 +60,7 @@ h1, h2, h3, h4, h5, h6
       display block
       font-size large
   .location
+    min-height 65px
     font-size x-large
     margin 0
     text-transform lowercase

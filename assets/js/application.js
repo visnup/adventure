@@ -2,11 +2,13 @@
 //= require vendor/moment
 
 $.get('/next', function(data) {
+  var $details = $('.details');
+
   data.start = moment(data.DTSTART[0].value);
   data.location = data.LOCATION[0].value;
   data.description = data.DESCRIPTION[0].value;
 
-  $('.location').text(data.location);
+  $('.location', $details).text(data.location);
 
   // server offset
   var skew = 0;
@@ -33,7 +35,7 @@ $.get('/next', function(data) {
 
     if (diff > 0) {
       var p = parts(diff)
-        , $countdown = $('.start').empty();
+        , $countdown = $('.start', $details).empty();
       if (p[0])
         $countdown.append(p[0] + 'd ');
       $countdown.append(_.map(p.slice(1, 4), pad).join(':'));
@@ -41,4 +43,6 @@ $.get('/next', function(data) {
       setTimeout(tick, 800);
     }
   })();
+
+  $details.addClass('ready');
 });
