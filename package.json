@@ -1,0 +1,27 @@
+{
+  "name": "adventure",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Adventure Time schedule",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/visnup/adventure.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "nodemon": "~0.7.2"
+  },
+  "dependencies": {
+    "jade": "~0.28.1",
+    "socket.io": "~0.9.13",
+    "stylus": "~0.32.0",
+    "express": "~3.1.0"
+  }
+}
