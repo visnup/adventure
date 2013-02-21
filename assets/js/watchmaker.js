@@ -250,11 +250,14 @@ var nko = {};
   nko.Dude.prototype.warp = function(pos) {
     var self = this;
 
+    self.state = 'warp';
     this.div
       .stop()
       .fadeOut(null, null, function() {
         self.goTo(pos, 0);
-        self.div.fadeIn();
+        self.div.fadeIn(function() {
+          self.state = 'idle';
+        });
       });
   };
 
