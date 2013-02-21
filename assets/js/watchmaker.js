@@ -1,6 +1,6 @@
-//= require vendor/jquery-1.9.1.min
-//= require vendor/jquery-migrate-1.1.1.min
-//= require vendor/underscore-min
+//= require vendor/jquery-1.9.1
+//= require vendor/jquery-migrate-1.1.1
+//= require vendor/underscore
 //= require vendor/jquery.keylisten
 
 var nko = {};
