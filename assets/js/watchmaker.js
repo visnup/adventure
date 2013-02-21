@@ -280,7 +280,7 @@ var nko = {};
 
   $(function() {
     //// a dude
-    var types = [ 'LSP', 'iceking', 'finnthehuman', 'jakethedog', 'bubblegum' ];
+    var types = [ 'LSP', 'iceking', 'finnthehuman', 'jakethedog', 'beemo', 'bubblegum' ];
     var me = nko.me = new nko.Dude({
       name: types[Math.floor(types.length * Math.random())],
       pos: new nko.Vector(-1000, -1000),
