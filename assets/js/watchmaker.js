@@ -428,7 +428,7 @@ var nko = {};
         });
       })
       .keydown(function(e) {
-        return true; // gets in the way of page scrolling
+        // can get in the way of page scrolling, disable if you need scroll
         if ($(e.target).is(':input')) return true;
         if (e.altKey) return true;
         var d = (function() {
