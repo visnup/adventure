@@ -209,6 +209,7 @@ var nko = {};
 
   nko.Dude.prototype.goTo = function(pos, duration, callback) {
     pos = new nko.Vector(pos).minus(this.origin);
+    if (pos.y < 0) pos.y = 0; // can't move off grass
 
     if (typeof(duration) === 'function')
       callback = duration;
