@@ -13,12 +13,22 @@ html
         font-weight normal
         font-style normal
         font-size medium
+
+      @-webkit-keyframes float
+        from
+          background-position 0 -400px
+        to
+          background-position 2354px -400px
       
       html, body
         height 100%
       body
         font-family sans-serif
-        background-color blue
+        background blue url('/images/clouds.png') 0 -400px repeat
+        -webkit-animation-name float
+        -webkit-animation-duration 420s
+        -webkit-animation-iteration-count infinite
+        -webkit-animation-timing-function linear
       #page
         background green url('/images/grass.png') repeat
         position relative
