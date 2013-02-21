@@ -43,9 +43,14 @@ server.listen(app.get('port'), function() {
 
 // Socket.IO
 var io = require('socket.io').listen(server);
-io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+io.sockets.on('connection', function(client) {
+  client.on('message', function(data) {
+    if (Date.now() - client.lastMessageAt < 100) return;
+    client.lastMessageAt = Date.now();
+    data.id = client.id;
+    client.json.broadcast.send(data);
+  });
+  client.on('disconnect', function() {
+    client.json.broadcast.send({ id: client.id, disconnect: true });
   });
 });

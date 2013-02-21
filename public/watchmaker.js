@@ -275,7 +275,7 @@ var nko = {};
 
   $(function() {
     //// a dude
-    var types = [ 'beemo', 'bubblegum', 'finthehuman', 'gunter', 'iceking', 'jakethedog', 'lumpyspaceprincess' ];
+    var types = [ 'beemo', 'bubblegum', 'finnthehuman', 'gunter', 'iceking', 'jakethedog', 'lumpyspaceprincess' ];
     var me = nko.me = new nko.Dude({
       name: types[Math.floor(types.length * Math.random())],
       pos: new nko.Vector(-100, -100),
@@ -295,9 +295,7 @@ var nko = {};
 
     //// networking
     var dudes = nko.dudes = {};
-    var ws = nko.ws = io.connect(null, {
-      'port': '#socketIoPort#'
-    });
+    var ws = nko.ws = io.connect(null);
     ws.on('connect', function() {
       me.id = ws.socket.sessionid;
       nko.dudes[me.id] = me;
