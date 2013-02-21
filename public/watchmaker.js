@@ -126,8 +126,8 @@ var nko = {};
   nko.IdleThing.prototype.constructor = nko.IdleThing;
 
   nko.IdleThing.prototype.draw = function draw() {
-    this.frames = this.size.x / 80;
-    this.size.x = 80;
+    this.frames = this.size.x / 196;
+    this.size.x = 196;
 
     if (this.cycles) this.cycles = this.cycles * this.frames;
 
@@ -170,8 +170,8 @@ var nko = {};
   };
 
   nko.Dude.prototype.draw = function draw() {
-    this.idleFrames = (this.size.x - 640) / 80;
-    this.size.x = 80;
+    this.idleFrames = (this.size.x - (196*8)) / 196;
+    this.size.x = 196;
 
     this.bubble = $('<div class="bubble">')
       .css('bottom', this.size.y + 10)
@@ -275,7 +275,8 @@ var nko = {};
 
   $(function() {
     //// a dude
-    var types = [ 'beemo', 'bubblegum', 'finnthehuman', 'gunter', 'iceking', 'jakethedog', 'lumpyspaceprincess' ];
+    //var types = [ 'beemo', 'bubblegum', 'finnthehuman', 'gunter', 'iceking', 'jakethedog', 'lumpyspaceprincess' ];
+    var types = [ 'LSP' ];
     var me = nko.me = new nko.Dude({
       name: types[Math.floor(types.length * Math.random())],
       pos: new nko.Vector(-100, -100),
