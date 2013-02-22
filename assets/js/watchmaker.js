@@ -297,11 +297,11 @@ var nko = {};
 
   $(function() {
     //// a dude
-    var types = [ 'lsp', 'iceking', 'gunter',
-      'finnthehuman', 'jakethedog', 'beemo',
-      'bubblegum', 'marceline' ];
+    var types = [ 'lsp', 'iceking', 'gunter', 'finnthehuman', 'jakethedog',
+                  'beemo', 'bubblegum', 'marceline' ]
+      , name = location.pathname.substring(1);
     var me = nko.me = new nko.Dude({
-      name: types[Math.floor(types.length * Math.random())],
+      name: name || types[Math.floor(types.length * Math.random())],
       pos: new nko.Vector(-1000, -1000),
       ready: function() {
         this.speak('type to chat. click to move around.');

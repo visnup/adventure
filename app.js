@@ -22,8 +22,6 @@ app.configure('development', function() {
 });
 
 // Routes
-app.get('/', function(req, res) { res.render('index') });
-
 app.get('/now', function(req, res) { res.send(String(Date.now())) });
 
 app.get('/event', function(req, res) {
@@ -46,6 +44,9 @@ app.get('/event', function(req, res) {
     res.send(events[0]);
   });
 });
+
+app.get(/^/, function(req, res) { res.render('index') });
+
 
 // Listen
 var http = require('http')
