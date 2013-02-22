@@ -31,8 +31,19 @@ app.get('/event', function(req, res) {
   request(url, function(err, r, body) {
     if (err) return res.send({ error: err, response: r, body: body });
 
-    var calendar = icalendar.parse_calendar(body);
-    res.send(calendar.components.VEVENT[0].properties);
+    var calendar = icalendar.parse_calendar(body)
+      , events = calendar.components.VEVENT.map(function(vevent) {
+        return vevent.properties
+      });
+    events = events.sort(function(a, b) {
+      if (a.RRULE)
+        return 1;
+      else if (b.RRULE)
+        return -1;
+      else
+        return new Date(a.DTSTART[0].value) - new Date(b.DTSTART[0].value);
+    });
+    res.send(events[0]);
   });
 });
 
