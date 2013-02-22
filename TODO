@@ -1,0 +1,10 @@
+if a person clicks too early, they move in off the corner and ghosted
+initial y offset wrong between different-height browsers
+fix hugging
+slow initial http response for /
+
+invite people to the event
+event details
+
+requestAnimationFrame
+  http://www.youtube.com/watch?v=Vp524yo0p44&feature=player_embedded
