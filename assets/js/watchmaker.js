@@ -53,6 +53,19 @@ var nko = {};
     }
   };
 
+  // Images are on Dropbox
+  var images = {
+    beemo: 'http://dl.dropbox.com/u/22849/Adventure%20Time/beemo.png',
+    bubblegum: 'http://dl.dropbox.com/u/22849/Adventure%20Time/bubblegum.png',
+    finnthehuman: 'http://dl.dropbox.com/u/22849/Adventure%20Time/finnthehuman.png',
+    gunter: 'http://dl.dropbox.com/u/22849/Adventure%20Time/gunter.png',
+    heart: 'http://dl.dropbox.com/u/22849/Adventure%20Time/heart.png',
+    iceking: 'http://dl.dropbox.com/u/22849/Adventure%20Time/iceking.png',
+    jakethedog: 'http://dl.dropbox.com/u/22849/Adventure%20Time/jakethedog.png',
+    lsp: 'http://dl.dropbox.com/u/22849/Adventure%20Time/LSP.png',
+    marceline: 'http://dl.dropbox.com/u/22849/Adventure%20Time/marceline.png'
+  };
+
 
   //// Thing
   nko.Thing = function(options) {
@@ -67,7 +80,7 @@ var nko = {};
     this.ready = options.ready;
 
     this.div = $('<div class="thing">').addClass(this.name);
-    this.img = $('<img>', { src: '/images/' + this.name + '.png' })
+    this.img = $('<img>', { src: images[this.name] })
       .load(function() {
         self.size = new nko.Vector(this.width, this.height);
         self.draw();
@@ -284,7 +297,8 @@ var nko = {};
 
   $(function() {
     //// a dude
-    var types = [ 'LSP', 'iceking', 'finnthehuman', 'jakethedog', 'beemo',
+    var types = [ 'lsp', 'iceking', 'gunter',
+      'finnthehuman', 'jakethedog', 'beemo',
       'bubblegum', 'marceline' ];
     var me = nko.me = new nko.Dude({
       name: types[Math.floor(types.length * Math.random())],
