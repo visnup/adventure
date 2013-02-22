@@ -105,7 +105,7 @@ var nko = {};
   };
 
   nko.Thing.prototype.draw = function draw() {
-    var offset = new nko.Vector(this.size.x * -0.5, -this.size.y + 20);
+    var offset = new nko.Vector(this.size.x * -0.5, -this.size.y + 24);
     this.div
       .css({
         left: this.pos.x,
