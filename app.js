@@ -30,6 +30,7 @@ app.get('/event', function(req, res) {
     if (err) return res.send({ error: err, response: r, body: body });
 
     var calendar = icalendar.parse_calendar(body)
+      , event = null
       , events = calendar.components.VEVENT.map(function(vevent) {
         return vevent.properties
       });
@@ -41,7 +42,12 @@ app.get('/event', function(req, res) {
       else
         return new Date(a.DTSTART[0].value) - new Date(b.DTSTART[0].value);
     });
-    res.send(events[0]);
+    for (var i = 0; i < events.length; i++) {
+      event = events[i];
+      if (new Date(event.DTSTART[0].value) > new Date)
+        break;
+    }
+    res.send(event);
   });
 });
 
