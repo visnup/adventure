@@ -4,22 +4,19 @@ var icalendar = require('icalendar')
   , app = express();
 
 // Configuration
-app.configure(function() {
-  app.set('port', process.env.PORT || 8000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
+app.set('port', process.env.PORT || 8000);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
 
-  app.use(express.compress());
+app.use(require('compression')());
 
-  app.use(express.static(__dirname + '/public'));
-  app.use(require('connect-assets')());
+app.use(express.static(__dirname + '/public'));
+app.use(require('connect-assets')());
 
-  app.use(express.logger('dev'));
-});
+app.use(require('morgan')('combined'));
 
-app.configure('development', function() {
+if (process.env.NODE_ENV === 'development')
   app.use(express.errorHandler());
-});
 
 // Routes
 app.get('/now', function(req, res) { res.send(String(Date.now())) });

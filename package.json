@@ -6,8 +6,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "nodemon",
-    "deploy": "jitsu deploy"
+    "test": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -17,14 +16,17 @@
   "license": "BSD",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "jitsu": "*",
-    "nodemon": "*"
+    "nodemon": "*",
+    "npm-shrinkwrap": "^5.4.0"
   },
   "dependencies": {
+    "compress": "^0.99.0",
+    "compression": "^1.5.0",
     "connect-assets": "*",
     "express": "*",
     "icalendar": "*",
     "jade": "*",
+    "morgan": "^1.6.0",
     "nib": "*",
     "request": "*",
     "socket.io": "*",
